@@ -10,19 +10,15 @@ class Rect {
     y = _y;
     h = 30;
     w = 70; 
+    
   }
   
   void draw_self() {
     rect(x, y, w, h);
   }
   
-  void move(int direction) {
-    if (direction > 0) {
-      x += 5;
-    } else if (direction < 0) {
-      x -= 5;
-    }
-    
+  void move(float x_speed) {
+    x += x_speed;
   }
   
   

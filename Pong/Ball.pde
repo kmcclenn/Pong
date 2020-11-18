@@ -10,6 +10,7 @@ class Ball {
   float h = 20;
   float x_speed;
   float y_speed;
+  float acceleration = 0.0005;
 
 
   // The constructor method in Processing is always the name of the class
@@ -19,7 +20,8 @@ class Ball {
     x = _x;
     y = _y;
     start_x = _x;
-    start_y = y;
+    start_y = _y;
+
     x_speed = random(-7, 7);
     int random_int = int(random(1, 3));
     if (random_int == 1) {
@@ -40,10 +42,14 @@ class Ball {
   void reset() {
     x = start_x;
     y = start_y;
+    x_speed = random(-7, 7);
+    int random_int = int(random(1, 3));
+    if (random_int == 1) {
+      y_speed = 2;
+    } else if (random_int == 2) {
+      y_speed = -2;
+    }
     draw_self();
-  }
-  void change_y_speed(float new_speed) {
-    y_speed = new_speed;
   }
   
   // Actually draw the circle on the screen
@@ -55,6 +61,18 @@ class Ball {
   void move() {
     x += x_speed;
     y += y_speed;
+    if (x_speed > 0) {
+      x_speed += acceleration;
+    }
+    if (x_speed < 0) {
+      x_speed -= acceleration;
+    }
+    if (y_speed > 0) {
+      y_speed += acceleration;
+    }
+    if (x_speed < 0) {
+      y_speed -= acceleration;
+    }
   }
 
 
