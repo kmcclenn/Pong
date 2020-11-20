@@ -9,7 +9,7 @@ class Rect {
     x = _x;
     y = _y;
     h = 30;
-    w = 70; 
+    w = 90; 
     
   }
   
