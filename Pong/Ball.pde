@@ -8,6 +8,8 @@ class Square {
   float side = 20;
   PVector speed = new PVector();
   float acceleration = 0.0005;
+  float start_y_speed = 4;
+  float start_x_speed = 6;
 
 
   // The constructor method in Processing is always the name of the class
@@ -19,13 +21,8 @@ class Square {
     start_x = _x;
     start_y = _y;
 
-    speed.x = random(-7, 7);
-    int random_int = int(random(1, 3));
-    if (random_int == 1) {
-      speed.y = 2;
-    } else if (random_int == 2) {
-      speed.y = -2;
-    }
+    speed.x = pow(-1, int(random(1, 3))) * start_x_speed;
+    speed.y = pow(-1, int(random(1, 3))) * start_y_speed;
 
   }
 
@@ -39,13 +36,8 @@ class Square {
   void reset() {
     location.x= start_x;
     location.y = start_y;
-    speed.x = random(-7, 7);
-    int random_int = int(random(1, 3));
-    if (random_int == 1) {
-      speed.y = 2;
-    } else if (random_int == 2) {
-      speed.y = -2;
-    }
+    speed.x = pow(-1, int(random(1, 3))) * start_x_speed;
+    speed.y = pow(-1, int(random(1, 3))) * start_y_speed;
     draw_self();
   }
   
