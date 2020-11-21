@@ -65,15 +65,15 @@ void draw() {
   }
 
   if ((square.location.y + square.side) < 0) {
-    score[1] += 1;
-    print("You: ", score[0], " Computer: ", score[1]);
+    score[1] ++;
+    println("You: ", score[0], " Computer: ", score[1]);
     delay(3000);
     square.reset();
   }
 
   if (square.location.y > height) {
-    score[0] += 1;
-    print("You: ", score[0], " Computer: ", score[1]);
+    score[0] ++ ;
+    println("You: ", score[0], " Computer: ", score[1]);
     delay(3000);
     square.reset();
   }
